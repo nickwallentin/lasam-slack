@@ -17,7 +17,7 @@ const Tour = () => {
       <p>
         På denna sidan kommer du att lära dig det viktigaste i Slack och hur vi
         kommer att arbeta i programmet. Ser programmet annorlunda ut för dig så
-        beror det på om du använder dig av mörktläge på din enhet eller inte.
+        beror det på om du använder dig av mörkt läge på din enhet eller inte.
       </p>
       <h2>Slack på telefonen</h2>
 
@@ -26,7 +26,7 @@ const Tour = () => {
           <div className="content">
             <h4>1. Översta raden</h4>
             <p>
-              På överstaraden hittar du information om var du är, möjlighet att
+              På översta raden hittar du information om var du är, möjlighet att
               söka och öppna menyer. <strong>1)</strong> Menyn.{" "}
               <strong>2)</strong> Kanalen du är inne på. <strong>3)</strong>{" "}
               Sökfunktion. <strong>4)</strong> Profilmenyn. Klicka på menyn (1)

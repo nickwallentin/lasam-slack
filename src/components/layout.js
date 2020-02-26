@@ -5,37 +5,58 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
+import React, { useState } from "react"
+import Media from "react-media"
+
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Aside from "./aside"
 import NextPrev from "./nextPrev"
 import "./layout.css"
+import MenuIcon from "../assets/icons/menu.svg"
 
 import { Sec, Wrap } from "./styled"
 
 const Layout = ({ children, next, prev }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const [menu, setMenu] = useState(false)
 
   return (
     <React.Fragment>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header />
       <Sec>
         <Wrap>
           <Content>
-            <Aside />
-            <Main>
+            <Media
+              query="(max-width: 800px)"
+              render={() => (
+                <Aside mobile={true} menu={menu} setMenu={setMenu} />
+              )}
+            />
+            <Media
+              query="(min-width: 801px)"
+              render={() => (
+                <Aside mobile={false} menu={menu} setMenu={setMenu} />
+              )}
+            />
+            <Media
+              query="(max-width: 800px)"
+              render={() => (
+                <div
+                  style={{
+                    padding: "20px 40px",
+                    background: "#ffffff",
+                    display: "flex",
+                    alignItem: "center",
+                  }}
+                  onClick={() => setMenu(true)}
+                >
+                  <MenuIcon style={{ marginRight: "15px" }} />{" "}
+                  <span style={{ lineHeight: "1.7rem" }}>Meny</span>
+                </div>
+              )}
+            />
+            <Main setMenu={setMenu} menu={menu}>
               {" "}
               {children} <NextPrev next={next} prev={prev} />{" "}
             </Main>
@@ -50,6 +71,9 @@ const Layout = ({ children, next, prev }) => {
 const Content = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `
 const Main = styled.main`
   background: white;

@@ -15,7 +15,7 @@ export const Sec = styled.div`
 `
 
 export const Wrap = styled.div`
-  max-width: 90%;
+  max-width: 100%;
   width: 1080px;
   margin: 0 auto;
 `

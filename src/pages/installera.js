@@ -208,10 +208,8 @@ const InstallPage = () => {
             <h4>Installera på PC (Windows)</h4>
 
             <p>
-              Använder du en PC (Windows) så klickar du på knappen nedan. Det
-              finns tre alternativ, har du en äldre dator så klicka på "32-BIT"
-              har du en hyfsat ny dator så klicka på "64-BIT". Följ sedan
-              anvisningarna.
+              Använder du en PC (Windows) så klickar du på knappen nedan. Välj
+              "Download 64-BIT". Följ sedan anvisningarna.
             </p>
             <Btn
               href="https://slack.com/intl/en-se/downloads/windows"
