@@ -7,12 +7,17 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Aside from "./aside"
+import NextPrev from "./nextPrev"
 import "./layout.css"
 
-const Layout = ({ children }) => {
+import { Sec, Wrap } from "./styled"
+
+const Layout = ({ children, next, prev }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,28 +29,33 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <React.Fragment>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+      <Sec>
+        <Wrap>
+          <Content>
+            <Aside />
+            <Main>
+              {" "}
+              {children} <NextPrev next={next} prev={prev} />{" "}
+            </Main>
+          </Content>
+        </Wrap>
+      </Sec>
+      <footer></footer>
+    </React.Fragment>
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+const Content = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+`
+const Main = styled.main`
+  background: white;
+  min-height: 100vh;
+  padding: 40px;
+  max-width: 800px;
+`
 
 export default Layout
