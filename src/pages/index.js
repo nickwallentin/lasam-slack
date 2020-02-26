@@ -35,6 +35,9 @@ const IndexPage = () => (
       Slack. Nedan följer de olika stegen du behöver göra för att börja använda
       Slack.
     </p>
+    <p>
+      <strong>Guiden tar ca 10 minuter</strong>
+    </p>
     <ol>
       <li>
         <Link to="/ga-med">Börja här</Link>
