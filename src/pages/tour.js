@@ -30,7 +30,8 @@ const Tour = () => {
               söka och öppna menyer. <strong>1)</strong> Menyn.{" "}
               <strong>2)</strong> Kanalen du är inne på. <strong>3)</strong>{" "}
               Sökfunktion. <strong>4)</strong> Profilmenyn. Klicka på menyn (1)
-              för att se alla kanaler.
+              för att se alla kanaler (på Android ser du Landskronasamverkans
+              logotyp istället för menyknappen, klicka på loggan istället).
             </p>
           </div>
           <div className="img">
