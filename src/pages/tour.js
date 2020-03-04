@@ -11,7 +11,7 @@ const Tour = () => {
   const data = useStaticQuery(query)
   const images = data.allFile.edges
   return (
-    <Layout prev="/installera">
+    <Layout prev="/installera" next="/klar">
       <SEO title="Överblick av Slack" />
       <h1>Genomgång av Slack</h1>
       <p>
